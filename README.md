@@ -1,6 +1,6 @@
 # News Aggregaor
 A react app for aggregatring news from multiple resources  which allows user to personalize their feed, search and filter the news.
-## :fa-paperclip: [Live Demo](react-news-app-delta.vercel.app "Live Demo")
+## :rocket: [Live Demo](react-news-app-delta.vercel.app "Live Demo")
 ### Features
 - Authentication with credentials and google auth
 - Personalized News Feed
