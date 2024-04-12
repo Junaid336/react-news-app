@@ -1,5 +1,6 @@
 import axios from "axios";
-import { formatParamsForApi } from "../helper";
+
+const proxyUrl = import.meta.env.VITE_PROXY_URL; 
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -12,7 +13,7 @@ const gnApiKey = import.meta.env.VITE_GN_API_KEY;
 
 export async function getLatestNews () {
     let reqOptions = {
-        url: `${baseUrl}/top-headlines?country=us&apiKey=${apiKey}`,
+        url: `${proxyUrl}/latest`,
         method: "GET",
     }
     try {
@@ -25,7 +26,7 @@ export async function getLatestNews () {
 
 export async function getNewsByCategory (category) {
     let reqOptions = {
-        url: `${baseUrl}/top-headlines?country=us&category=${category}&apiKey=${apiKey}`,
+        url: `${proxyUrl}/categories?category=${category}`,
         method: "GET",
       }
     try {
@@ -36,12 +37,11 @@ export async function getNewsByCategory (category) {
     }  
 }
 
-export async function getSearchResults (searchParams) {
-    let params = formatParamsForApi(searchParams);
+export async function getSearchResults (params) {
     params.apiKey = apiKey
 
     let reqOptions = {
-        url: `${baseUrl}/everything`,
+        url: `${proxyUrl}/search-results`,
         method: "GET",
         params,
     }
